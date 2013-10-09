@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sitemap xmlns="http://www.palmxj.com/xml/config/sitemap">
+    <!--角色(权限)定义-->
+    <roles>
+        <role>ROLE_USER</role>
+        <role>ROLE_ADMIN</role>
+        <role>实名用户</role>
+        <role>计调</role>
+        <role>认证计调</role>
+        <role>计调_旅行社管理员</role>
+        <role>司机</role>
+        <role>认证司机</role>
+        <role>导游</role>
+        <role>认证导游</role>
+        <role>旅行社</role>
+    </roles>
+    <!--菜单定义-->
+    <menus id="default">
+        <menu text="首页" icon="" url="/" pjax="true"/>
+        <menu text="控件示例" icon="" url="/demo" pjax="true"/>
+        <menu text="信息资源" url="/info"/>
+        <menu text="业务管理" url="/travelplan/business/0" roles="ROLE_USER"/>
+        <!--
+        <menu text="业务管理" url="/work">
+            <menu text="团队管理" control="enable" url="/work/team">
+                <menu text="添加旅行团"/>
+                <menu text="发布团"/>
+                <menu text="寻找团"/>
+            </menu>
+            <menu text="旅行社管理" control="enable" url="/work/travelagency"/>
+            <menu text="我的收藏" control="enable" url="/work/favorites"/>
+            <menu text="我收到的邀请" control="enable" url="/work/invitation"/>
+            <menu text="信息认证" control="visible" url="/identification"/>
+        </menu>
+    -->
+        <menu text="帮助关于" url="/help" />
+    </menus>
+    <menus id="user">
+        <!--another menu define-->
+    </menus>
+
+    <!--导航-->
+    <navigation>
+         <module text="首页" url="/">
+             <module text="示例" url="/demo"/>
+             <module text="团队管理" url="/work/team"/>
+             <module text="旅行社管理" url="/work/travelagency"/>
+             <module text="我的收藏" url="/work/favorites"/>
+         </module>
+        <module text="认证" url="/identification">
+             <module text="旅行社信息认证" url="/identification/travelagency"/>
+        </module>
+    </navigation>
+</sitemap>
