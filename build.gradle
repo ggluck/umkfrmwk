@@ -1,0 +1,80 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+sourceCompatibility = 1.6
+version = '1.0'
+project.ext.springVersion = '4.0.0.M1'
+project.ext.vaadinVersion = '7.0.7'
+project.ext.hibernateVersion= '4.1.9.Final'
+ext.spring = 'org.springframework'
+ext.hibernate = 'org.hibernate'
+ext.vaadin = 'com.vaadin'
+repositories {
+	mavenLocal()
+    mavenCentral()
+	maven{
+		url "http://maven.vaadin.com/vaadin-addons"
+	}
+	maven{
+		url "https://oss.sonatype.org/content/repositories/vaadin/"
+	}
+}
+
+dependencies {
+
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+	//spring
+    runtime spring+':spring-core:'+springVersion
+	runtime spring+':spring-context:'+springVersion
+	//runtime (spring+':spring-context-support:'+springVersion){transitive = true}
+	runtime spring+':spring-context-support:'+springVersion
+	runtime spring+':spring-aop:'+springVersion
+	runtime spring+':spring-context-support:'+springVersion
+	runtime spring+':spring-aspects:'+springVersion
+	runtime spring+':spring-tx:'+springVersion
+	runtime spring+':spring-jdbc:'+springVersion
+	runtime spring+':spring-orm:'+springVersion
+	runtime spring+':spring-web:'+springVersion
+	runtime spring+':spring-beans:'+springVersion
+	runtime spring+':spring-expression:'+springVersion
+	runtime spring+'.data'+':spring-data-jpa:1.4.1.RELEASE'
+	testRuntime spring+':spring-test:'+springVersion
+	//hibernate
+	runtime hibernate+':hibernate-core:'+hibernateVersion
+	runtime hibernate+':hibernate-entitymanager:'+hibernateVersion
+	runtime hibernate+':hibernate-validator:4.3.1.Final'
+	//slf4j
+	runtime 'org.slf4j:slf4j-log4j12:1.7.5'
+	//web servlet
+	providedCompile "javax.servlet:servlet-api:2.5"
+	//cglib
+	runtime 'cglib:cglib-nodep:2.2'
+	//jta
+	runtime 'javax.transaction:jta:1.1'
+	//ehcache
+	runtime hibernate+':hibernate-ehcache:'+hibernateVersion
+	//mysql driver
+	runtime 'mysql:mysql-connector-java:5.1.25'
+	//vaadin
+	runtime vaadin+':vaadin-server:'+vaadinVersion
+	runtime vaadin+':vaadin-client:'+vaadinVersion
+	runtime vaadin+':vaadin-client-compiled:'+vaadinVersion
+	//vaadin addons
+	runtime 'org.vaadin.addons:cssinject:2.0.3'
+	runtime 'org.vaadin.addons:tableexport:1.4.0'
+	runtime 'com.vaadin.addon:jpacontainer:3.0.0'
+	runtime 'ru.xpoft.vaadin:spring-vaadin-integration:2.0.2'
+	
+	//org.apache.poi
+	runtime 'org.apache.poi:poi:3.9'
+	//dbcp connection pool
+	runtime 'commons-dbcp:commons-dbcp:1.4'
+	//aopalliance
+	runtime 'aopalliance:aopalliance:1.0'
+	//h2 database driver
+	//runtime 'com.h2database:h2:1.3.171'
+}
+
+
+
